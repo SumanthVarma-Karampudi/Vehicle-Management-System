@@ -1,0 +1,30 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: Compile Java files
+      run: javac Main.java Car.java Bike.java Engine.java
+
+    - name: Run Program with Sample Input
+      run: |
+        echo -e "1\nToyota\nInnova\n1\n3\n0" > input.txt
+        java Main < input.txt
