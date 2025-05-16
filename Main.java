@@ -78,7 +78,7 @@ public class Main{
                         return;
 
                     default:
-                        System.out.println("Invalid action.");
+                        System.out.println(" action not valid.");
                 }
             } else if (bike != null) {
                 switch (action) {
